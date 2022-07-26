@@ -1,7 +1,7 @@
 import "./Result.css";
 
-const Result = () => {
-  return <section className="game-result">You're dead!</section>;
+const Result = ({ text }) => {
+  return <section className="game-result">{text}</section>;
 };
 
 export default Result;
