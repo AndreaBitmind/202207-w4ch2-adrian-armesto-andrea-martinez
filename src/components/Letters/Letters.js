@@ -1,16 +1,13 @@
 import "./Letters.css";
 
-const Letters = (alphabetContainer) => {
-  const alphabet = alphabetContainer.alphabet;
+const Letters = (props) => {
+  const letter = props.letter;
+  const actionOnclick = props.actionOnclick;
 
   return (
-    <ul className="letters">
-      {alphabet.map((letter) => (
-        <li className="letter" key={letter}>
-          <a href={letter.toLowerCase()}> {letter} </a>
-        </li>
-      ))}
-    </ul>
+    <li onClick={actionOnclick} className="letter" key={letter}>
+      <a href={letter}> {letter} </a>
+    </li>
   );
 };
 

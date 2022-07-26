@@ -6,6 +6,10 @@ import UsedLetters from "./components/UsedLetters/UsedLetters";
 import alphabet from "./utilities/alphabet";
 
 function App() {
+  const actionOnclickLetter = () => {
+    console.log("letter");
+  };
+
   return (
     <>
       <div className="container">
@@ -15,7 +19,15 @@ function App() {
         </div>
         <GuessLetters />
         <Result />
-        <Letters alphabet={alphabet} />
+        <ul className="letters">
+          {alphabet.map((letter) => (
+            <Letters
+              actionOnclick={actionOnclickLetter}
+              letter={letter}
+              key={letter}
+            />
+          ))}
+        </ul>
       </div>
     </>
   );
