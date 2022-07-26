@@ -3,6 +3,7 @@ import Hangman from "./components/Hangman/Hangman";
 import Letters from "./components/Letters/Letters";
 import Result from "./components/Result/Result";
 import UsedLetters from "./components/UsedLetters/UsedLetters";
+import alphabet from "./utilities/alphabet";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         </div>
         <GuessLetters />
         <Result />
-        <Letters />
+        <Letters alphabet={alphabet} />
       </div>
     </>
   );
