@@ -1,3 +1,4 @@
+import { useState } from "react";
 import GuessLetters from "./components/GuessLetters/GuessLetters";
 import Hangman from "./components/Hangman/Hangman";
 import Letters from "./components/Letters/Letters";
@@ -7,6 +8,12 @@ import wordList from "./components/utilities/wordList";
 import alphabet from "./utilities/alphabet";
 
 function App() {
+  const [letters, setLetters] = useState([]);
+
+  const actionOnclickLetter = (letter) => {
+    setLetters([...letters, letter]);
+  };
+
   const generateRandomWord = () => {
     const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
     const letters = randomWord
@@ -20,15 +27,11 @@ function App() {
 
   generateRandomWord();
 
-  const actionOnclickLetter = (letter) => {
-    return;
-  };
-
   return (
     <>
       <div className="container">
         <div className="main-container">
-          <UsedLetters />
+          <UsedLetters usedLetters={letters} />
           <Hangman />
         </div>
         <GuessLetters />
