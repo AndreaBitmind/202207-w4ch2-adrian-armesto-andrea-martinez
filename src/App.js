@@ -7,12 +7,18 @@ import wordList from "./components/utilities/wordList";
 import alphabet from "./utilities/alphabet";
 
 function App() {
-  const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-  const letters = randomWord
-    .normalize("NFD")
-    .replace(/([aeio])\u0301|(u)[\u0301\u0308]/gi, "$1$2")
-    .normalize()
-    .split("");
+  const generateRandomWord = () => {
+    const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+    const letters = randomWord
+      .normalize("NFD")
+      .replace(/([aeio])\u0301|(u)[\u0301\u0308]/gi, "$1$2")
+      .normalize()
+      .split("");
+
+    return letters;
+  };
+
+  generateRandomWord();
 
   const actionOnclickLetter = (letter) => {
     return;
