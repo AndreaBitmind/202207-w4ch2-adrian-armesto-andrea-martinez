@@ -1,3 +1,4 @@
+import { useState } from "react";
 import GuessLetters from "./components/GuessLetters/GuessLetters";
 import Hangman from "./components/Hangman/Hangman";
 import Letters from "./components/Letters/Letters";
@@ -6,15 +7,17 @@ import UsedLetters from "./components/UsedLetters/UsedLetters";
 import alphabet from "./utilities/alphabet";
 
 function App() {
+  const [letters, setLetters] = useState([]);
+
   const actionOnclickLetter = (letter) => {
-    console.log(letter);
+    setLetters([...letters, letter]);
   };
 
   return (
     <>
       <div className="container">
         <div className="main-container">
-          <UsedLetters />
+          <UsedLetters usedLetters={letters} />
           <Hangman />
         </div>
         <GuessLetters />
