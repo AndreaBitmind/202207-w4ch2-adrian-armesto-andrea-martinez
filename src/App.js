@@ -3,8 +3,13 @@ import Hangman from "./components/Hangman/Hangman";
 import Letters from "./components/Letters/Letters";
 import Result from "./components/Result/Result";
 import UsedLetters from "./components/UsedLetters/UsedLetters";
+import alphabet from "./utilities/alphabet";
 
 function App() {
+  const actionOnclickLetter = (letter) => {
+    console.log(letter);
+  };
+
   return (
     <>
       <div className="container">
@@ -14,7 +19,15 @@ function App() {
         </div>
         <GuessLetters />
         <Result />
-        <Letters />
+        <ul className="letters">
+          {alphabet.map((letter) => (
+            <Letters
+              actionOnclick={() => actionOnclickLetter(letter)}
+              letter={letter}
+              key={letter}
+            />
+          ))}
+        </ul>
       </div>
     </>
   );
