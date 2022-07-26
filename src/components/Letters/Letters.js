@@ -6,7 +6,9 @@ const Letters = (props) => {
 
   return (
     <li onClick={actionOnclick} className="letter" key={letter}>
-      <a href={letter}> {letter} </a>
+      <a href={letter} onClick={(event) => event.preventDefault()}>
+        {letter}
+      </a>
     </li>
   );
 };

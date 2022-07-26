@@ -6,8 +6,8 @@ import UsedLetters from "./components/UsedLetters/UsedLetters";
 import alphabet from "./utilities/alphabet";
 
 function App() {
-  const actionOnclickLetter = () => {
-    console.log("letter");
+  const actionOnclickLetter = (letter) => {
+    console.log(letter);
   };
 
   return (
@@ -22,7 +22,7 @@ function App() {
         <ul className="letters">
           {alphabet.map((letter) => (
             <Letters
-              actionOnclick={actionOnclickLetter}
+              actionOnclick={() => actionOnclickLetter(letter)}
               letter={letter}
               key={letter}
             />
